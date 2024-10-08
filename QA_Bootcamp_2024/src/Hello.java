@@ -1,5 +1,5 @@
 public class Hello {
-//psvm, sout
+    //psvm, sout
     public static void main(String[] args) {
 
 //        int myFirstVariable = 100;
@@ -67,7 +67,7 @@ public class Hello {
         int year = Integer.parseInt(args[0]);
 
         if(year >= 1900 && year <= 2016){
-            if((year % 4 == 0 $$ year % 100 != 0) || (year % 100 == 0 && year % 400 != 0)){
+            if((year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 != 0)){
                 System.out.println("February has 29 days");
             }
             else{
