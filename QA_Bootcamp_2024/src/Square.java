@@ -32,8 +32,4 @@ public class Square {
         System.out.println("Square with side " + squareSide + " has area of "+ getArea());
     }
 
-    public static void printSquare(){
-        System.out.println("Square");
-    }
-
 }

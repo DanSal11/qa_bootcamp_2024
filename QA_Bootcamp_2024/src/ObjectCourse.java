@@ -14,6 +14,7 @@ public class ObjectCourse {
 
         Car dacia1310 = new Car("sedan","RED", "dacia1310", 1300, 45);
 
+
         dacia1310.startCar();
         dacia1310.accelerate(20);
         dacia1310.gearUp();
@@ -40,13 +41,15 @@ public class ObjectCourse {
             Square cmdSquare = new Square();
             cmdSquare.setSide(Double.parseDouble(value));
             cmdSquare.printCurrentSquare();
-            Square.printSquare(); ///static method
+            Utils.printSquare(cmdSquare); ///static method
         }
 
 
         Rectangle rectangle = new Rectangle(5,10);
         System.out.println("area is " + rectangle.getArea() + " diagonal is " + rectangle.getDiagonal() +
                 " perimeter is " + rectangle.getPerimeter());
+
+
     }
 
 }
