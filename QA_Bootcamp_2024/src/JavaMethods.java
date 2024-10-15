@@ -1,31 +1,115 @@
 public class JavaMethods {
 
-    public static void main(String[] args) {
-        System.out.println("Heelo 2!");
+    public static void main(String[] args) throws IllegalAccessException {
+//        System.out.println("Heelo 2!");
+//
+//        float myFloat = myFirstMethod(50,70);
+//        System.out.println(myFloat);
+//        System.out.println("Number is odd ? " + isOddNumber(100));
+//        printMessage(100);
+//
+//        drewFullShape(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+//        System.out.println("------------------");
+//        drewShapeOutline(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+//        System.out.println("------------------");
+//        drewShapeCorners(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+//        System.out.println("------------------");
+//
+//        drewFullShape(Integer.parseInt(args[0]));
+//        System.out.println("------------------");
+//        drewShapeOutline(Integer.parseInt(args[0]));
+//        System.out.println("------------------");
+//        drewShapeCorners(Integer.parseInt(args[0]));
+//
+//
+//        addNumbers(1, 100);
+//        addNumbers(500f, 600f);
+//        addNumbers(105.6, 88.45);
 
-        float myFloat = myFirstMethod(50,70);
-        System.out.println(myFloat);
-        System.out.println("Number is odd ? " + isOddNumber(100));
-        printMessage(100);
+        Shape myShape = new Shape();
+        myShape.draw();
+        myShape.erase();
+        myShape.setColor("Green");
+        System.out.println("The shape has color: " + myShape.getColor());
 
-        drewFullShape(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-        System.out.println("------------------");
-        drewShapeOutline(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-        System.out.println("------------------");
-        drewShapeCorners(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-        System.out.println("------------------");
+        Rectangle myRectangle = new Rectangle(4,5);
+        myRectangle.draw();
 
-        drewFullShape(Integer.parseInt(args[0]));
-        System.out.println("------------------");
-        drewShapeOutline(Integer.parseInt(args[0]));
-        System.out.println("------------------");
-        drewShapeCorners(Integer.parseInt(args[0]));
+        Square mySquare = new Square(12);
+        mySquare.draw();
+        System.out.println("length " + mySquare.getLength());
+        System.out.println("Diagonal is " + mySquare.getDiagonal());
+
+        Shape myShape1 = new Square();
+        Shape myShape2 = new Triangle();
+        Shape myShape3 = new Rectangle();
+        Shape myShape4 = new Circle();
+
+        myShape1.draw();
+        myShape2.draw();
+        myShape3.draw();
+        myShape4.draw();
 
 
-        addNumbers(1, 100);
-        addNumbers(500f, 600f);
-        addNumbers(105.6, 88.45);
+        Person teacher1 = new Teacher("UPB");
+        teacher1.setName("Alex");
+        teacher1.setSurname("G");
+        teacher1.eat();
+        ((Teacher)teacher1).teachCourse();
+
+        Person student1 = new Student();
+        student1.setName("Andrei");
+        student1.setSurname("Studentila");
+        student1.eat();
+
+        if(student1.getName() == null) {
+            throw new IllegalAccessException("No name for the student");
+        }
+
+
+        try {
+            myExceptionMethod();
+        }
+        catch (IllegalThreadStateException ex) {
+            System.out.println("Ooooops an exception " + ex.getMessage());
+        }
+        catch (IllegalArgumentException | MyException ex) {
+            System.out.println(ex.getMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Generic exception");
+        }
+
+        try {
+            int argument = Integer.parseInt(args[0]);
+        }
+        catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("No params provided");
+        }
+        catch (NumberFormatException nex) {
+            System.out.println("Input is not an integer");
+        }
+        catch (Exception ex) {
+            System.out.println("Generic exeption");
+        }
+        finally {
+            System.out.println("This line will always execute");
+        }
+
     }
+
+    public static void myExceptionMethod() throws IllegalArgumentException, MyException {
+        Student s1 = new Student();
+
+        if(s1.getName() == null) {
+//            throw new IllegalAccessException("Exceptiom: No name for the student");
+            throw new MyException("Exceptiom: No name for the student");
+        }
+    }
+
+
+
+
 
     private static void addNumbers(int i, int j) {
         System.out.println("adding 2 int numbers with sum "+ (i+j));

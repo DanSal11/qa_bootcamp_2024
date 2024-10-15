@@ -31,7 +31,7 @@ public class ObjectCourse {
 
         Square squareabcd = new Square();
         squareabcd.setSide(5);
-        System.out.println("Square with side " + squareabcd.squareSide + " has area of "+ squareabcd.getArea());
+        System.out.println("Square with side " + squareabcd.getLength() + " has area of "+ squareabcd.getArea());
 
 
 //        for (int i = 0; i < args.length ; i++) {
