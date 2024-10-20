@@ -99,12 +99,12 @@ public class CollectionsExercises {
         HashMap<Character, Integer> charMap = new HashMap<>();
         String finalText = caseSensitive ? text : text.toLowerCase();
 
-        for(Character s : text.toCharArray()) {
+        for(Character s : finalText.toCharArray()) {
             if(charMap.containsKey(s)) {
-                int currentCount = charMap.get(s);
-                currentCount++;
-                charMap.put(s, currentCount);
-//                charMap.put(s, charMap.get(s) + 1);  mai simplu
+//                int currentCount = charMap.get(s);
+//                currentCount++;
+//                charMap.put(s, currentCount);
+                charMap.put(s, charMap.get(s) + 1);  ///mai simplu
             }
             else {
                 charMap.put(s, 1);
