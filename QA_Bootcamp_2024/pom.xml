@@ -14,7 +14,9 @@
         <testngVersion>7.10.2</testngVersion>
         <surefireVersion>3.5.1</surefireVersion>
         <extentVersion>5.1.2</extentVersion>
+        <seleniumVersion>4.25.0</seleniumVersion>
         <suiteFile>testSuites/runSuites.xml</suiteFile>
+
     </properties>
 
     <dependencies>
@@ -70,6 +72,13 @@
             <artifactId>extentreports</artifactId>
             <version>${extentVersion}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${seleniumVersion}</version>
+        </dependency>
+
 
     </dependencies>
 
