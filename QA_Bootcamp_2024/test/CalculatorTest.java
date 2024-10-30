@@ -62,6 +62,35 @@ public class CalculatorTest {
         Assertions.assertEquals(Math.sqrt(2), c.compute(2, 0, "SQRT"), "SQRT failed.");
     }
 
+    //  TEMA
+    //---------------------------------------------------------------------------------------------------
+    @Test
+    public void testDivision01() {
+        Assertions.assertEquals(8, c.compute(56,7,"/"), "Divison failed");
+    }
+
+    @Test
+    public void testDivison02() {
+        Assertions.assertEquals(61, c.compute(122,2,"/"), "Divison failed");
+    }
+
+    @Test
+    public void testSquareRoot03(){
+        Assertions.assertEquals(Math.sqrt(121), c.compute(121, 0, "SQRT"), "SQRT failed.");
+    }
+
+    @Test
+    public void testMultiplication02() {
+        Assertions.assertEquals(144, c.compute(12, 12,"*"), "Multiplication failed.");
+    }
+
+    @Test
+    public void testSubtraction02() {
+        Assertions.assertEquals(-191, c.compute(-115, 76, "-"), "Subtraction failed.");
+    }
+    //---------------------------------------------------------------------------------------------------
+
+
     @AfterEach
     public void cleanTest() {
         System.out.println("Cleanup after the test.");

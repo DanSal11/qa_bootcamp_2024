@@ -2,6 +2,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.junit.jupiter.api.Assertions;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
@@ -106,6 +107,53 @@ public class CalculatorNgTest {
         Assert.assertEquals(exp, c.compute(d1, d2, op), message);
         mytest.pass("test finished");
     }
+
+    //  TEMA
+    //---------------------------------------------------------------------------------------------------
+    @Test(testName = "Addition", groups = {"addition", "calculator"})
+    public void test07() {
+        ExtentTest mytest = extent.createTest("Addition");
+        Assert.assertEquals(83, c.compute(11, 72, "+"), "Addition failed.");
+        mytest.log(Status.PASS, "test finished");
+//        mytest.pass("finished");
+    }
+
+    @Test(testName = "DivisonNegatives", groups = {"divison", "calculator"})
+    public void test08() {
+        ExtentTest mytest = extent.createTest("DivisonNegatives");
+        Assert.assertEquals(36, c.compute(-72, -2, "/"), "Divison failed.");
+//        mytest.log(Status.PASS, "test finished");
+        mytest.pass("finished");
+    }
+
+    @Test(testName = "DivisonNegativesWithPositives", groups = {"divison", "calculator"})
+    public void test09() {
+        ExtentTest mytest = extent.createTest("DivisonNegativesWithPositives");
+        Assert.assertEquals(-11, c.compute(-121, 11, "/"), "Divison failed.");
+        mytest.log(Status.PASS, "test finished");
+//        mytest.pass("finished");
+    }
+
+    @Test(testName = "SquareRoot", groups = {"SQRT", "calculator"})
+    public void test10() {
+        ExtentTest mytest = extent.createTest("SquareRoot");
+        Assert.assertEquals(12, c.compute(144, 0, "SQRT"), "SQRT failed.");
+        mytest.log(Status.PASS, "test finished");
+//        mytest.pass("finished");
+    }
+
+    @Test
+    public void TestInvalidationOperator() {
+        ExtentTest mytest = extent.createTest("InvalidationOperator");
+        IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class, () ->
+        {
+            c.compute(100, 2, "ABC");
+        }, "Operator not valid!");
+        mytest.log(Status.PASS, "test finished");
+//        mytest.pass("finished");
+    }
+    //---------------------------------------------------------------------------------------------------
+
 
     private void cleanUpGeneric() {
         extent.flush();
