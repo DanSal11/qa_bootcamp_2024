@@ -1,4 +1,6 @@
-package frameworkUtils;
+package juiceShop.frameworkUtils;
+
+import org.openqa.selenium.WebElement;
 
 public class Selectors {
 
