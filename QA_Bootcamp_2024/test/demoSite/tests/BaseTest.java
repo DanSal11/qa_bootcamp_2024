@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    protected static final String baseUrl = Utils.getConfigProperty("baseUrl");
+    protected static final String baseUrl = Utils.getConfigProperty("baseUrl2");
     protected WebDriver driver;
 
     @BeforeMethod
