@@ -11,10 +11,10 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Set;
 
 public class Utils {
@@ -126,6 +126,37 @@ public class Utils {
         for(Cookie c : cookies) {
             System.out.println(c.toJson());
         }
+    }
+
+    public static int generateRandomNumber(int maxNumber) {
+        Random rand = new Random();
+        return rand.nextInt() % maxNumber;
+    }
+
+    public static void serializeToFile(Object classObject, String fileName) {
+        try {
+            FileOutputStream fileStream = new FileOutputStream(fileName);
+            ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+            objectStream.writeObject(classObject);
+            objectStream.close();
+            fileStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Object deserializeFromFile(String fileName) {
+        Object deserializeObject =null;
+        try {
+            FileInputStream fileStream = new FileInputStream(new File(fileName));
+            ObjectInputStream objectStream = new ObjectInputStream(fileStream);
+            deserializeObject = objectStream.readObject();
+            objectStream.close();
+            fileStream.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return deserializeObject;
     }
 
 
