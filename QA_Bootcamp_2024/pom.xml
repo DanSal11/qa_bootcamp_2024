@@ -15,11 +15,13 @@
         <surefireVersion>3.5.1</surefireVersion>
         <extentVersion>5.1.2</extentVersion>
         <seleniumVersion>4.25.0</seleniumVersion>
-        <suiteFile>testSuites/runSuites.xml</suiteFile>
         <restAssured>5.5.0</restAssured>
         <hamcrestVersion>3.0</hamcrestVersion>
         <jsonVersion>20240303</jsonVersion>
         <gsonVersion>2.9.0</gsonVersion>
+        <sureFireRunnerVersion>3.5.2</sureFireRunnerVersion>
+
+        <suiteFile>testSuites/petStoreSuite.xml</suiteFile>
 
     </properties>
 
@@ -125,7 +127,21 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>${suiteFile}</suiteXmlFile>
                         </suiteXmlFiles>
+                        <properties>
+                            <name>listener</name>
+                            <value>customReporting.CustomTestListener, customReporting.CustomTestReporter</value>
+                        </properties>
                     </configuration>
+
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.surefire</groupId>
+                            <artifactId>surefire-testng</artifactId>
+                            <version>${sureFireRunnerVersion}</version>
+                        </dependency>
+                    </dependencies>
+
+
                 </plugin>
             </plugins>
         </pluginManagement>

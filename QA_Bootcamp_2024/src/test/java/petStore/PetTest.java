@@ -1,12 +1,9 @@
 package petStore;
 
 import com.google.gson.Gson;
-import io.restassured.RestAssured;
 import io.restassured.http.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import juiceShop.frameworkUtils.Utils;
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.testng.Assert;
@@ -27,8 +24,8 @@ public class PetTest extends BaseTest{
     @DataProvider(name = "FindPetById")
     public Iterator<Object[]> findPetDp () {
         Collection<Object[]> dp = new ArrayList<>();
-        dp.add(new String[] {"99999", "404", ""});
-        dp.add(new String[] {"11", "200", "Gorilla"});
+        dp.add(new String[] {"99999", "404", "doggie"});
+        dp.add(new String[] {"11", "404", "Gorilla"});
         return dp.iterator();
     }
 

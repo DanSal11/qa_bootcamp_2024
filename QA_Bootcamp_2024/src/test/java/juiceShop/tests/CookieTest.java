@@ -1,11 +1,8 @@
 package juiceShop.tests;
 
-import jdk.jshell.execution.Util;
 import juiceShop.frameworkUtils.Utils;
 import org.openqa.selenium.Cookie;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 public class CookieTest extends  BaseTest{
 
